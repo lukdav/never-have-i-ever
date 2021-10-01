@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <h3 class="center-align">The Drinking Game Dictionary</h3>
+
     {% for game in games %}
         {{game.game_name}}<br>
         {{game.requirements}}<br>
