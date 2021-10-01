@@ -7,3 +7,16 @@
 #game-image img {
     width: 100%;
 }
+
+#game-card {
+    margin: 0;
+    width: 100%;
+}
+
+#game-name {
+    font-size: 2rem;
+}
+
+#game-categories {
+    margin-top: 10px;
+}
