@@ -20,3 +20,11 @@
 #game-categories {
     margin-top: 10px;
 }
+
+#checklist {
+    margin-top: 30px;
+}
+
+#checklist div {
+    display: inline-block;
+}
