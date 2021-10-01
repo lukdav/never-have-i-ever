@@ -1,0 +1,9 @@
+#game-image {
+    margin: 0;
+    height: 200px;
+    overflow: hidden;
+}
+
+#game-image img {
+    width: 100%;
+}

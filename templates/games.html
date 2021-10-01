@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">The Drinking Game Dictionary</h3>
+<h3 class="center-align">The Drinking Game Dictionary</h3>
 
-    {% for game in games %}
-        {{game.game_name}}<br>
-        {{game.requirements}}<br>
-        {{game.description}}<br>
-        {{game.rules}}<br>
-        {{game.category}}<br>
-    {% endfor %}
-    
+{% for game in games %}
+{{game.game_name}}<br>
+{{game.requirements}}<br>
+{{game.description}}<br>
+{{game.rules}}<br>
+{{game.category}}<br>
+{% endfor %}
+
+<ul class="collapsible">
+    <li>
+        <div class="row" id="game-image">
+            <img src="{{ url_for('static', filename='images/playing-cards.jpg') }}" alt="Playing cards">
+        </div>
+        <div class="collapsible-header blue-grey darken-4 white-text"><i class="fas fa-caret-down"></i>First</div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+</ul>
+
 {% endblock %}
