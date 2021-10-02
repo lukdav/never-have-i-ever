@@ -12,11 +12,16 @@
             <img src="{{ url_for('static', filename='images/playing-cards.jpg') }}" alt="Playing cards">
         </div>
         <div class="s12 collapsible-header blue-grey darken-4 white-text">
-            <i class="s2 fas fa-caret-down"></i>
-            <div class="row s10" id="game-card">
-                <span id="game-name" class="s8 left"><strong>{{game.game_name}}</strong></span>
-                <span id="game-categories" class="s4 right">{{game.category_name[0] }} |
-                    {{game.category_name[1] }} | {{game.category_name[2] }} </span>
+            <div id="game-caret" class="col s3">
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <div class="col s9" id="game-card">
+                <span id="game-name" class="left"><strong>{{game.game_name}}</strong></span>
+                <span id="game-categories" class="right">
+                    {% for category in game.category_name %}
+                        {{ category }}
+                    {% endfor %}
+                </span>
             </div>
         </div>
         <div class="collapsible-body">
@@ -25,7 +30,12 @@
                 <p>{{game.game_description}}</p>
                 <p>Submitted by: {{ game.submitted_by }}</p>
             </div>
+            <div class="center-align">
+                <a href="" class="waves-effect waves-light btn blue-grey darken-4">Edit</a>
+                <a href="" class="waves-effect waves-light btn red">Delete</a>
+            </div>
         </div>
+        
     </li>
     {% endfor %}
 </ul>
