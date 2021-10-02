@@ -117,7 +117,7 @@ def add_game():
 
 @app.route("/edit_game/<game_id>", methods=["GET", "POST"])
 def edit_game(game_id):
-    game = mongo.db.tasks.find_one({"_id": ObjectId(game_id)})
+    game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_game.html", game=game, categories=categories)
 
