@@ -28,3 +28,19 @@
 #checklist div {
     display: inline-block;
 }
+
+#requirements_list,
+#rule_list {
+    margin-bottom: 0;
+}
+
+#game_requirements,
+#game_rules {
+    margin-left: 30px;
+    margin-bottom: 0;
+}
+
+#requirements-input,
+#rule-input {
+    margin-left: 50px;
+}
