@@ -99,7 +99,8 @@ def logout():
 
 @app.route("/add_game")
 def add_game():
-    return render_template("add_game.html")
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_game.html", categories=categories)
 
 
 if __name__ == "__main__":

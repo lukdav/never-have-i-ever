@@ -3,6 +3,7 @@ $(document).ready(function () {
     edge: "right"
   });
   $('.collapsible').collapsible();
+  $('select').formSelect();
 });
 
 
@@ -25,9 +26,6 @@ document.getElementById("add_rule").onclick = function () {
   document.getElementById("game_rules").appendChild(node);
   document.getElementById("new_rule").value="";
 }
-
-
-
 
 
 // document.getElementById("add_rule").addEventListener("keydown", function (event) {

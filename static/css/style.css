@@ -44,3 +44,7 @@
 #rule-input {
     margin-left: 50px;
 }
+
+#category-select {
+    padding: 0;
+}
