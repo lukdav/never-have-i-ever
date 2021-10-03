@@ -1,3 +1,8 @@
+#scroll-spy{
+    position: sticky;
+    top:200px;
+   }
+
 #game-image {
     margin: 0;
     height: 200px;
@@ -6,6 +11,12 @@
 
 #game-image img {
     width: 100%;
+    padding-top: 50px;
+}
+
+#game-panel {
+    margin: auto;
+    width: 90%;
 }
 
 #game-card {
