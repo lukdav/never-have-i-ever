@@ -1,84 +1,86 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align blue-grey-text text-darken-4">Edit Game</h3>
+<main class="container">
 
-<div class="row grey card-panel lighten-4">
-    <form class="col s12" method="POST" action="{{ url_for('edit_game', game_id=game._id) }}">
-        <!-- game name -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix blue-grey-text text-darken-4"></i>
-                <input id="game_name" name="game_name" value="{{ game.game_name }}" minlength="5" maxlength="55" type="text" class="validate" required>
-                <label for="game_name">Game Name</label>
-            </div>
-        </div>
-        <!-- game description -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-align-left prefix blue-grey-text text-darken-4"></i>
-                <textarea id="game_description" name="game_description" minlength="5" maxlength="400"
-                    class="materialize-textarea validate" required>{{ game.game_description }}</textarea>
-                <label for="game_description">Brief Description</label>
-            </div>
-        </div>
-        <!-- game requirements -->
-        <div class="row">
-            <div id="requirements_list" class="input-field col s12">
-                <i class="fas fa-book prefix blue-grey-text text-darken-4"></i>
-                <ol id="game_requirements" name="game_requirements" minlength="5" maxlength="3000" type="text"
-                    class="materialize-textarea validate" required>{{ game.game_requirements }}
-                </ol>
-                <label for="game_requirements"></label>
-            </div>
-            <div id="requirements-input">
-                <input type="text" id="new_requirements" placeholder="Game Requirements">
-                <input type="button" id="add_requirements" value="Add Requirement">
-            </div>
-        </div>
-        <!-- game rules -->
-        <div class="row">
-            <div id="rule_list" class="input-field col s12">
-                <i class="fas fa-book prefix blue-grey-text text-darken-4"></i>
-                <ol id="game_rules" name="game_rules" minlength="5" maxlength="3000" type="text"
-                    class="materialize-textarea validate" required>
-                        {% for rule in game.game_rules %}
-                            <li>{{ rule }}</li>
-                        {% endfor %}
-                </ol>
-                <label for="game_rules"></label>
-            </div>
-            <div id="rule-input">
-                <input type="text" id="new_rule" placeholder="Game Rules">
-                <input type="button" id="add_rule" value="Add Rule">
-            </div>
-        </div>
-        <!-- game categories -->
-        <div id="category-select" class="input-field col s12">
-            <i class="fas fa-layer-group prefix blue-grey-text text-darken-4"></i>
-            <select id="category_name" name="category_name" class="validate" multiple required>
-                {% for category in categories %}
-                        {% if category.category_name == game.category %}
-                            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-                        {% else %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endif %}
-                {% endfor %}
-            </select>
-            <label for="category_name">Game Category</label>
-        </div>
+    <h3 class="center-align blue-grey-text text-darken-4">Edit Game</h3>
 
-        <!-- submit button -->
-        <div class="row">
-            <div class="col s12 center-align">
-                <a href="{{url_for('get_games') }}" class="btn red">Cancel <i class="fas fa-times"></i></a>
-                <button type="submit" class="btn blue-grey darken-4">
-                    Edit Game <i class="fas fa-pen-square right"></i>
-                </button>
+    <div class="row grey card-panel lighten-4">
+        <form class="col s12" method="POST" action="{{ url_for('edit_game', game_id=game._id) }}">
+            <!-- game name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix blue-grey-text text-darken-4"></i>
+                    <input id="game_name" name="game_name" value="{{ game.game_name }}" minlength="5" maxlength="55" type="text" class="validate" required>
+                    <label for="game_name">Game Name</label>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+            <!-- game description -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix blue-grey-text text-darken-4"></i>
+                    <textarea id="game_description" name="game_description" minlength="5" maxlength="400"
+                        class="materialize-textarea validate" required>{{ game.game_description }}</textarea>
+                    <label for="game_description">Brief Description</label>
+                </div>
+            </div>
+            <!-- game requirements -->
+            <div class="row">
+                <div id="requirements_list" class="input-field col s12">
+                    <i class="fas fa-book prefix blue-grey-text text-darken-4"></i>
+                    <ol id="game_requirements" name="game_requirements" minlength="5" maxlength="3000" type="text"
+                        class="materialize-textarea validate" required>{{ game.game_requirements }}
+                    </ol>
+                    <label for="game_requirements"></label>
+                </div>
+                <div id="requirements-input">
+                    <input type="text" id="new_requirements" placeholder="Game Requirements">
+                    <input type="button" id="add_requirements" value="Add Requirement">
+                </div>
+            </div>
+            <!-- game rules -->
+            <div class="row">
+                <div id="rule_list" class="input-field col s12">
+                    <i class="fas fa-book prefix blue-grey-text text-darken-4"></i>
+                    <ol id="game_rules" name="game_rules" minlength="5" maxlength="3000" type="text"
+                        class="materialize-textarea validate" required>
+                            {% for rule in game.game_rules %}
+                                <li>{{ rule }}</li>
+                            {% endfor %}
+                    </ol>
+                    <label for="game_rules"></label>
+                </div>
+                <div id="rule-input">
+                    <input type="text" id="new_rule" placeholder="Game Rules">
+                    <input type="button" id="add_rule" value="Add Rule">
+                </div>
+            </div>
+            <!-- game categories -->
+            <div id="category-select" class="input-field col s12">
+                <i class="fas fa-layer-group prefix blue-grey-text text-darken-4"></i>
+                <select id="category_name" name="category_name" class="validate" multiple required>
+                    {% for category in categories %}
+                            {% if category.category_name == game.category %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="category_name">Game Category</label>
+            </div>
 
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a href="{{url_for('get_games') }}" class="btn red">Cancel <i class="fas fa-times"></i></a>
+                    <button type="submit" class="btn blue-grey darken-4">
+                        Edit Game <i class="fas fa-pen-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
 
 {% endblock %}
