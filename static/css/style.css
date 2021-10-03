@@ -3,6 +3,14 @@
     top:200px;
    }
 
+#game-box {
+    margin-top: 50px;
+}
+
+#upvote-btn {
+    margin: 50px;
+}
+
 #game-image {
     margin: 0;
     height: 200px;
