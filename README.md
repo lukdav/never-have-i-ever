@@ -47,13 +47,11 @@ The Home page:
 - A title further explaning the purpose of the website, along with a link to sign up to submit content.
 - The remainder of the home page will be split into two columns.
 - One column, taking up 25% of the page width, will contain a navigation 'scrollspy' listing the categories. The scrollspy will be fixed so as the page scrolls the section being viewed will be highlighted.
-- The main column, taking 75% of the page width will contain a list of games, depending on the selected category.
+- The main column, taking 75% of the page width will contain a list of games, depending on the selected category. Each game contains a collapsible to expand to reveal the game description.
 
 The Add Game page:
-- Will include a brief history of the band, from its origins to its present progress/successes.
-- Has a picture of the band together to give the user an idea of the band's line-up.
-- Each member of the band will have a short biography to explain their role in the band, their history and influences.
-- Each band member will have a profile picture to accompany the biography to give the user further information.
+- Will contain a form to submit a new game.
+- Form input fields will be Name, Description, Requirements, Rules, Categories and a Submit Button.
 
 The Media page:
 - Will include a selection of photographs from live shows to give the user a feel of the band's level of performance.
