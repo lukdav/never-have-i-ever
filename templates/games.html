@@ -34,15 +34,19 @@
                         {% endif %}
                     </div>
                     <div class="s12 collapsible-header blue-grey darken-4 white-text">
-                        <div id="game-caret" class="col s3">
+                        <div id="game-caret" class="col s1">
                             <i class="fas fa-caret-down"></i>
                         </div>
-                        <div class="col s9" id="game-card">
+                        <div class="col s11" id="game-card">
                             <span id="game-name" class="left"><strong>{{game.game_name}}</strong></span>
                             <span id="game-categories" class="right">
-                                {% for category in game.category_name %}
-                                {{ category }}
-                                {% endfor %}
+                                <p>
+                                    {% for category in game.category_name %}
+                                    {{ category }}
+                                    {% endfor %}
+                                </p>
+                                <p class="right">Rating: {{ game.game_rating }}</p>
+                                
                             </span>
                         </div>
                     </div>
