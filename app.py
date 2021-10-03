@@ -147,6 +147,20 @@ def game_page(game_id):
     return render_template("game_page.html", game=game)
 
 
+@app.route("/upvote/<game_id>")
+def upvote(game_id):
+    if "user" not in session:
+        return redirect(url_for("login"))
+
+    game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
+
+    if game:
+        mongo.db.games.update_one(
+            game, {"$set": {"game_rating": int(game["game_rating"]) + 1}})
+
+    return redirect(url_for("game_page", game_id=game_id))
+
+
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))

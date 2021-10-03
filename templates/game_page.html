@@ -28,8 +28,9 @@
                         {% endfor %}
                     </ol>
                     <br>
-                    <p class="center-align blue-grey-text text-darken-4">Rating: 10
-                        <span id="upvote-btn"><a href="" class="waves-effect waves-light btn-small blue-grey darken-4">Upvote</a></span>
+                    <p class="center-align blue-grey-text text-darken-4">Rating: {{ game.game_rating }}
+                        <span id="upvote-btn"><a href="{{url_for('upvote', game_id=game._id) }}"
+                            class="waves-effect waves-light btn-small blue-grey darken-4">Upvote</a></span>
                     </p>
                     
                     
