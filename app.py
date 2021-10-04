@@ -150,6 +150,7 @@ def delete_game(game_id):
 
 @app.route("/game_page/<game_id>")
 def game_page(game_id):
+    
     game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
     return render_template("game_page.html", game=game)
 

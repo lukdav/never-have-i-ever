@@ -1,7 +1,11 @@
 #scroll-spy{
     position: sticky;
-    top:200px;
+    top:50px;
    }
+
+#search-box {
+    margin-bottom: 0;
+}
 
 #game-box {
     margin-top: 50px;
