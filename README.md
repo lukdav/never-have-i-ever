@@ -47,43 +47,74 @@ The Home page:
 - A title further explaning the purpose of the website, along with a link to sign up to submit content.
 - The remainder of the home page will be split into two columns.
 - One column, taking up 25% of the page width, will contain a navigation 'scrollspy' listing the categories. The scrollspy will be fixed so as the page scrolls the section being viewed will be highlighted.
-- The main column, taking 75% of the page width will contain a list of games, depending on the selected category. Each game contains a collapsible to expand to reveal the game description.
+- The main column, taking 75% of the page width will contain a list of games, depending on the selected category.
+- Each game card states the Game Name, and the Categories associated with it. The Game card also shows an image referring to the game category.
+- The Game card also contains a collapsible which expands to reveal the game description, with a button to the Game Page to reveal specific game rules. An Edit and/or Delete button is also present depending on user admin authorisation.
+
+The Register page:
+- Contains a form to create a new account.
+- Form input fields include Username and Password, with buttons to either Cancel or Submit.
+- A link to the Login page is provided.
+
+The Login page:
+- Contains a form to sign in to an existing account.
+- Form input fields include Username and Password, with buttons to either Cancel or Log In.
+- A link to the Register page is provided.
+
+The User Profile page:
+- A user's profile page.
+- Not yet a working page. 
+- Plan to have input fields for user's details, as well as an image for expression of personality.
+- Plan also includes an attribution section stating the games submitted by the user and perhaps a user's score related to the rating system.
+
+The Game page:
+- Specific page for each game.
+- Contains additional details of the game, including Game Requirements and Game Rules.
+- The page also includes a rating and a button in order to Upvote the game, incrementing its rating by one.
 
 The Add Game page:
-- Will contain a form to submit a new game.
-- Form input fields will be Name, Description, Requirements, Rules, Categories and a Submit Button.
+- Contains a form to submit a new game.
+- Form input fields are Name, Description, Requirements, Rules, Categories and a Submit Button.
 
-The Media page:
-- Will include a selection of photographs from live shows to give the user a feel of the band's level of performance.
-- Will also include two videos of live performances to give the user direct access to content.
+The Edit Game page:
+- Contains a form to edit an existing game.
+- Form input fields are prepopulated with Name, Description, Requirements, Rules, Categories of the game and a Submit Button.
 
-The Contact page:
-- Will provide a method of contacting the band and its management via a contact form.
+The Categories page:
+- Access only available to users with Admin authority.
+- Contains individual Cards for each type of category.
+- Each card has Edit and a Delete buttons.
+- Below the cards is a button to Add Category.
 
-The Sign Up button:
-- Will appear on larger devices to encourage users to become a member to enhance the user experience by providing exclusive content.
-- The sign up form will open in a modal.
+The Add Category page:
+- Contains a form to add a new category.
+- A form input field is for Category Name.
+- Below are a Cancel button to go back and a Submit button to add the category.
+
+The Edit Category page:
+- Contains a form to edit an existing category.
+- Form input field for Category Name is prepopulated.
+- Below are a Cancel button to go back and a Submit button to update the category.
+
 
 ### Yet to be Implemented
 
-Sign up form/modal:
-- Will also be provided on smaller/mobile devices.
-
-A Member's page:
-- will provide exclusive content to users who have signed up.
-- such users will have to opportunity to prebook tickets for live performances. 
+Profile Page:
+- Users Details.
 
 ---
 
 ## Technologies Used
-- [Microsoft Word](https://www.microsoft.com/en-gb/microsoft-365/word) was used to construct the mockups as the ability to add text, shapes, pictures, colour and effects is useful in getting a detailed idea of layout.
+- [Microsoft Word](https://www.microsoft.com/en-gb/microsoft-365/word) was used to construct the wireframes as the ability to add text and shapes is useful and fast to get an idea of layout.
 - [Gitpod](https://gitpod.io/) is used as an online IDE as a platform on which to code.
-- [Namecheap](https://www.namecheap.com/logo-maker/app/) was used to create the band's logo.
 - [VS Code](https://code.visualstudio.com/) is used by Gitpod as it's IDE.
-- [Boostrap 4.5](https://getbootstrap.com/docs/4.5/getting-started/introduction/) was used for frameworks and general code templates.
+- [Materialize](https://materializecss.com/) was used for frameworks and css templates.
 - HTML5 is a markup language and has been used to structure and present the content of the webpage.
 - CSS3 (Cascading Style Sheets) is a style sheet language used for describing the presentation of a document written in HTML.
 - [JavaScript](https://www.javascript.com/) is a high-level programming language and has been used to add a small amount of interactivity.
+- [Python3](https://www.python.org/download/releases/3.0/) is a coding language used to communicate with the database.
+- [MongoDB](https://www.mongodb.com/) is a document-oriented database, used to store data; categories, games and user data.
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) is a micro-web framework - depends on Jinja template engine and Werkzeug.
 
 ---
 
@@ -205,7 +236,7 @@ To clone this project from GitHub:
 5. Change the current working directory to the location where you want the cloned directory to be made.
 6. Type `git clone` and then paste the URL you copied in step 3.
 
-    ```git clone https://github.com/lukdav/RUD-Band.git```
+    ```git clone https://github.com/lukdav/never-have-i-ever.git```
 
 7. Press Enter. Your local clone will be created.
 
