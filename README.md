@@ -27,10 +27,10 @@ The website will have be targetted at young adults and students.
 Wireframes were drawn to assertain how the layout of the website will fit together:
 
 Home Page
-![Home Page - Top](assets/mockups/home-top.png)
+![Home Page](static/wireframes/home-page-wf.png)
 
 Add Game Page
-![Add Game Page - Top](assets/mockups/about-top.png)
+![Add Game Page](static/wireframes/submit-game-wf.png)
 
 ---
 
@@ -102,6 +102,15 @@ The Edit Category page:
 Profile Page:
 - Users Details.
 
+Delete functionality:
+- A final check on whether the user would like to delete the game or category would be a necessity with implementation, as these buttons may be clicked by mistake.
+
+Passwords:
+- A double password input would be desirable, including a method of resetting a password if required.
+
+Game Rating:
+- Preventing the user from upvoting multiple times will be essential to make the system fair and representative.
+
 ---
 
 ## Technologies Used
@@ -121,7 +130,7 @@ Profile Page:
 ## Testing
 
 1. W3C testing for the code.
-- Each page of the website was checked independently by copying  and then pasting its html code into the validator. The result often returned errors. Some were consistent across all pages and were easily rectified. Others however were more specific and difficult to correct. An example of such an occurrence was how the validator returned the error: "button must not appear as a descendant of the a element". This was rectified by styling the anchor element with the same class as the button to be used, but not using the button element.
+- Each page of the website was checked independently by copying and then pasting its html code into the validator. The result often returned errors. Some were consistent across all pages and were easily rectified. Others however were more specific and difficult to correct. An example of such an occurrence was how the validator returned the error: "button must not appear as a descendant of the a element". This was rectified by styling the anchor element with the same class as the button to be used, but not using the button element.
 - Screenshots of the validator were taken after testing the code:
 
 index.html
@@ -153,59 +162,90 @@ A report was conducted for a mobile device, and returned the following scores:
 There are many things that could be optimised, such as adding a "rel=noopener" to each link for security reasons. All advisories will be considered and acted upon if necessary.
 
 4. User Stories
-- The first user story is addressed as the website includes a list of upcoming gigs with a link to an external ticket site.
-- The second user story is addressed in the 'About' and 'Media' pages, which provide more information about the band and give examples of live performances for new fans to hear.
-- The final user story is fulfilled with the contact page. It provides a method of contacting the band and/or its management in order to begin the booking process.
+- The first user story is addressed as the website provides a list of games and categorises them to make page navigation easier and so a better level of UX is achieved.
+- The second user story is addressed as the website provides a method of submitting new games.
+- The final user story is considered with the ability for admins to control website content; the ability to edit and delete games along with the ability to create, update and delete the categories.
 
 ## Individual Page Testing 
 
-Navigation & Footer:
-- Ensure all navigation links load to the correct pages, including the home link connected to the band's logo.
-- Test each link in the footer to ensure it takes the user to the correct internal or external page (About, Download & Social Media links).
-- Resize the screen to ensure the nav bar collapses to a button on smaller devices and the 'Sign UP' button also disappears.
-- Resize the screen to ensure the 'About' section of the footer disappears on smaller devices.
+Navigation:
+- Resize the screen to ensure the nav bar collapses to a button on smaller devices.
+- Log in as a registered user to ensure that the Navbar contains the links for Home, Submit Game, Profile and Log Out.
+- Log in as an Admin to the Navbar contains all of the links a registered user would see as well as the link to Manage Categories.
+- Log out of all accounts and ensure the Navbar contains only the Home, Register and Log In links.
+- Ensure all navigation links load to the correct pages, including the home link connected to the logo/page title.
 
 Home Page:
-- Go to the "Home" page.
-- Resize the screen to ensure the background of the 'Welcome' section is structured correctly at various sizes. 
-- Click on the links of the 'New Album' to ensure the correct page is loaded.
-- Resize the screen to ensure the layout of the reviews changes as required for various screen sizes.
-- Click the 'Full Review' links to check the correct page is loaded.
-- Resize the screen to ensure the 'Location column' of the tour table disappears at smaller screen sizes.
-- Click each 'Tickets' link to ensure the user is taken to the correct site.
+- Resize the screen to ensure the ScrollSpy Navigation menu disappears on smaller devices.
+- Ensure the correct categories are loaded in the ScrollSpy menu from the database.
+- Ensure the ScrollSpy menu links target the correct section and games. 
+- Click on the sign up call to action link to ensure the correct page is targeted.
+- Click the game cards to ensure the collapsible drops down and the correct information is loaded from the database; Game Name, Game Categories, Game Rating, with the Game Description, and the 'Submitted By' username in the dropdown.
+- Ensure the game rating shows the correct score.
+- Check the image displayed matches the first Category listed for the game.
+- Click the Rules button to ensure the Game Page is loaded.
+- Ensure the the Edit and Delete button are only rendered with an Admin's account.
+- Click the Edit button the ensure the Edit Game page is loaded.
+- Click the Delete button and ensure the game is Deleted.
 
-About Page:
-- Go to the "About" page.
-- Resize the screen to ensure the layout of the 'Origins' section changes accordingly between in-line and vertical placement.
-- Click the 'here' link (for tickets) to ensure the user is taken to the correct destination.
-- Resize the screen to check the layout of 'The Band' section changes as required; structured vertically on small devices, vertical 4x4 on medium devices and inline 4x4 on larger devices.
+Register Page:
+- Ensure the form loads correctly with Username and Password inputs, along with form validation.
+- Try exiting username to ensure matching usernames do not occur.
+- Click the 'Register' button with the fields correctly filled and ensure the user's details are stored in the database (Password hashed), with the correct flash message displayed.
+- Click the Log In link below to ensure the Log In page is loaded.
 
-Media Page:
-- Go to the "Media" page.
-- Resize screen to ensure the photograph's layout changes according to screen size; 1 column for extra small screens, 2 colums for small screens, 3 columns for medium screens and 4 columns for large screens.
-- Test the videos load correctly and work as intended in the browser, including links to the original video.
+Log In Page:
+- Ensure the form loads correctly with Username and Password inputs, along with form validation.
+- Enter incorrect details: first username, then password and vice versa to ensure the form and user accounts are secure.
+- Log in with existing account to ensure form works as expected and the Profile page is loaded, with the correct flash message displayed.
+- Click the Register link below to ensure the Register page is loaded.
 
-Contact Page:
-- Go to the "Contact" page.
-- Try to submit the empty form and verify that an error message about the required fields appears.
-- Try to submit the form with an invalid email address and verify that a relevant error message appears.
-- Try to submit the form with all inputs valid and verify that a success message appears.
+Add Game Page:
+- Ensure the form loads correctly.
+- Ensure the form validation works as it should if sections are left blank(the validation for game requirement and rules sections has a bug as mentioned in the bugs section).
+- Ensure the Add Requirement and Add Rule buttons work correctly adding the input to a list.
+- Check the correct categories are loaded in the the multiple dropdown checklist and that the checklist works as it should.
+- Click the 'Add Game' button with a different input missing to ensure required iputs are filled.
+- Click the 'Add Game' button with the fields filled correctly to ensure the information is transfered and stored in the database (MongoDB: Games), with the correct flash message displayed.
 
-Modal:
-- Click on the 'Sign Up' button to ensure the modal appears.
-- Try to submit the empty form and verify that an error message about the required fields appears.
-- Try to submit the form with an invalid email address and verify that a relevant error message appears.
-- Try to submit the form with an incorrect repeated password and verify that a relevant error message appears.
-- Try to submit the form with all inputs valid and verify that a success message appears.
+Edit Game Page:
+- Go to the "Submit Game" page.
+- Ensure the form loads correctly with all fields prepopulated correctly with the game's details.
+- Ensure all validation and inputs function as with the Add Game page.
+- Click the 'Cancel' button to ensure the Game Page is reloaded.
+- Click the 'Edit Game' button with the fields filled correctly to ensure the information is updated and stored in the database, with the correct flash message displayed.
 
-Please note, the modal still requires verification for 'repeated password' to be addressed. This will require javascript to confirm password inputs match.
+Game Page:
+- Ensure the Game Page Title is the Game's Name.
+- Ensure the Game Description, Requirements and Rules are rendered correctly from the database.
+- Check the Rating is correct and that the Upvote button increments the rating by one, which also updates the database value.
+
+Profile Page:
+- Ensure the Username of the profile is displayed.
+- Further User details and personalisation of the page will be displayed here (Please see 'Yet to be implemented' section).
+
+Manage Categories Page:
+- Admin only.
+- Ensure all categories are rendered in a card each.
+- Each category/card has both an Edit and a Delete button.
+- Check the Edit button takes the Admin to the Edit Category Page.
+- Check the Delete button deletes the category, along with the flash message confirmation.
+
+Edit Categories Page:
+- Admin only.
+- Ensure form is displayed correctly with an input field for Category Name.
+- Check the input field is prepopulated with the current Category Name.
+- After editing the name, click the 'Update Category' button to ensure the category is both updated in the Categories Page as well as the database.
+- Ensure the flash message confirming the Updated Category is displayed as the Categories Page is loaded.
+- Back to the Edit form, click the 'Cancel' button to ensure the user is diverted back to the Categories page.
 
 ---
 
 ## Bugs
 
-- The heading 'blur' (box-shadow) could not be styled using an id or class in the style.css file. The problem was resolved using a direct style on the element in the html files, however this is not ideal and will be further investigated.
-- A small white gap appears below the footer on screen sizes smaller than 992px. This is believed to be due to the responsive adjustment of the contents of the footer but it was unable to be resolved before submition. This will be further investigated. 
+- The input validation on the Add Game and Edit Game forms for the Game Requirements and Game Rules is not responsive. This has a similar issue that required a JavaScript fix for the Categories form. Further investigation into a fix will be conducted.
+- When adding to the lists for the Game Requirements and Rules Sections, the Enter button has been unable to be linked up with a JavaScript Event Listener. Further investigation will be done to improve the UX.
+- The images show white space on smaller screens. This is due to the shape of the image loaded. A fix could be implemented using CSS or different images.
 
 ## Deployment
 
@@ -214,7 +254,7 @@ This project was developed on [Gitpod](https://gitpod.io/) using the [VS Code](h
 To deploy the website to [Github Pages](https://pages.github.com/) the following steps were taken.
 
 1. Log in to Github.
-2. From the list of repositories, select **lukdav/RUD-band**.
+2. From the list of repositories, select **lukdav/never-have-i-ever**.
 3. Select **Settings** from the right hand side of the menu near the top.
 4. Scroll down to the **Github Pages** section.
 5. Under **Source**, click the drop-down menu labelled **None** and select **Master Branch**.
@@ -248,25 +288,17 @@ Further reading and troubleshooting on cloning a repository can be found [here](
 ## Credits
 
 #### Media
-As this is a fictional band's website, all images and videos on this site are of various different bands.
-The photos used in this site were obtained using a Google 'free image search' (under a creative commons licence) and can be found at the following links:
-- [band1](https://en.wikipedia.org/wiki/File:American_Hard_Rock_band,_Alpha_Centauri,_2012.jpg)
-- [band2](https://commons.wikimedia.org/wiki/File:Archim%C3%A8de_rock_band.jpg)
-- [band3](https://www.flickr.com/photos/tshrinivasan/20752903484)
-- [band4](https://www.flickr.com/photos/61229509@N03/8902401971/)
-- [band5](https://www.flickr.com/photos/marlambie/4297386089)
-- [band6](https://www.flickr.com/photos/arcticproductions/14466886168/)
-
-- [gig1](https://commons.wikimedia.org/wiki/File:Rock_concert_in_black_and_white_(Unsplash).jpg)
-- [gig2](https://pixabay.com/photos/guitar-guitar-player-guitarist-man-5487605/)
-- [gig3](https://pixabay.com/photos/concert-music-lz7-maatan%C3%A4kyviss%C3%A4-706016/)
-- [gig4](https://pixabay.com/photos/gig-concert-show-music-event-3518406/)
-- [gig5](https://www.flickr.com/photos/frf_kmeron/3587036145) 
-- [gig6](https://commons.wikimedia.org/wiki/File:Stereophonics_gig_O2_Arena_2013_MMB_15.jpg)
-- [gig7](https://commons.wikimedia.org/wiki/File:Lake_Malawi_music_band.jpg)
-- [gig8](https://commons.wikimedia.org/wiki/File:Nj_06_band.jpg)
+All images used were found using a Creative Commons Google Image Search and on well known image sites.
+Below is the list of images used and where they were sourced:
+- [Playing Cards](https://pixahive.com/photo/playing-cards-6/)
+- [Drinking Chess](https://www.flickr.com/photos/nadja_robot/6981375/)
+- [Beer Pong](https://www.flickr.com/photos/wolfsavard/3327934768)
+- [Computer Wine](https://www.pxfuel.com/en/free-photo-xphmk)
+- [Classic](https://www.piqsels.com/en/public-domain-photo-ffozx/download)
+- [Dice](https://www.flickr.com/photos/8629918@N06/5239824170/in/photolist-8Z2tb3-6MbK4Q-24fc25r-zk4abF-xvEysr-uJGjr-2m3MBig-89frVB-7t1neg-6GAZZ5-4AuH4o-AZ4ynD-7t5bNw-9krpMS-2hxcoWC-cEHA4N-7QApho-27Bmw6J-4PaMrz-2jghZQ1-6PKLgM-8coawq-WsAT-ahvvww-tFc4L-dLCZr2-ZtHYTV-vAHyy-483J8k-dTHWuF-4AuKdy-qqiwo-9BgLgu-9BdSwr-NF58b4-5ksp8Q-4AuHLs-EGVvoM-7ahFy3-5BVgjp-4AuUhY-9BdSzK-5NB2qu-4AqEip-9BdSxF-d9pRGh-adcoR-4AuUYC-4AuTBh-JSSGf2 )
 
 ---
 
 ## Acknowledgements
-I received inspiration for this project from the [Serenity](https://www.serenity-band.com/) band's website.
+To build this website, I followed the tutorial and mini project again and feel that it shows a close resemblance to the project. Further iteration and a greater effort will be made to create a more visually unique website. For this project it was felt the Python, Flash, Jinja and MongoDB was of greater importance to show my understanding of the content of this module.
+With further research of Drinking Games for this project the [Drinking Game Zone](https://drinkinggamezone.com/) website gave further inspiration.
