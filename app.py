@@ -21,8 +21,9 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_games")
 def get_games():
+    categories = list(mongo.db.categories.find())
     games = list(mongo.db.games.find())
-    return render_template("games.html", games=games)
+    return render_template("games.html", games=games, categories=categories)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -150,7 +151,7 @@ def delete_game(game_id):
 
 @app.route("/game_page/<game_id>")
 def game_page(game_id):
-    
+
     game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
     return render_template("game_page.html", game=game)
 

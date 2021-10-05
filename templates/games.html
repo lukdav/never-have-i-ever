@@ -12,6 +12,9 @@
 
 <div class="row">
     <div class="col s12 m9 l10">
+
+
+
         <div id="all-games" class="section scrollspy">
             <h4 class="center-align blue-grey-text text-darken-4">All Games</h4>
             <ul class="s12 collapsible">
@@ -46,7 +49,7 @@
                                     {% endfor %}
                                 </p>
                                 <p class="right">Rating: {{ game.game_rating }}</p>
-                                
+
                             </span>
                         </div>
                     </div>
@@ -77,6 +80,80 @@
             </ul>
         </div>
 
+        <!-- category section -->
+        {% for category in categories %}
+
+            <div id="{{ category._id }}" class="section scrollspy">
+                <h4 class="center-align blue-grey-text text-darken-4">{{ category.category_name }}</h4>
+                <ul class="s12 collapsible">
+                    {% for game in games %}
+                        
+                            <li>
+
+                                <div class="row" id="game-image">
+                                    {% if game.category_name[0] == "Card Games" %}
+                                    <img src="{{ url_for('static', filename='images/playing-cards.jpg') }}" alt="Playing cards">
+                                    {% elif game.category_name[0] == "Team Games" %}
+                                    <img src="{{ url_for('static', filename='images/beer-pong.jpg') }}" alt="Beer pong">
+                                    {% elif game.category_name[0] == "Board Games" %}
+                                    <img src="{{ url_for('static', filename='images/drinking-chess.jpg') }}" alt="Drinking chess">
+                                    {% elif game.category_name[0] == "Virtual Games" %}
+                                    <img src="{{ url_for('static', filename='images/computer-wine.jpg') }}" alt="Laptop and wine">
+                                    {% elif game.category_name[0] == "Classic Games" %}
+                                    <img src="{{ url_for('static', filename='images/classic-beer.jpg') }}" alt="Cheers">
+                                    {% else %}
+                                    <img src="{{ url_for('static', filename='images/dice.jpg') }}" alt="Dice">
+                                    {% endif %}
+                                </div>
+                                <div class="s12 collapsible-header blue-grey darken-4 white-text">
+                                    <div id="game-caret" class="col s1">
+                                        <i class="fas fa-caret-down"></i>
+                                    </div>
+                                    <div class="col s11" id="game-card">
+                                        <span id="game-name" class="left"><strong>{{game.game_name}}</strong></span>
+                                        <span id="game-categories" class="right">
+                                            <p>
+                                                {% for category in game.category_name %}
+                                                    {{ category }}
+                                                {% endfor %}
+                                            </p>
+                                            <p class="right">Rating: {{ game.game_rating }}</p>
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="collapsible-body">
+                                    <div>
+                                        <h6>Description:</h6>
+                                        <p>{{game.game_description}}</p>
+                                        <p>Submitted by: {{ game.submitted_by }}</p>
+                                    </div>
+
+                                    <div class="center-align">
+                                        <a href="{{ url_for('game_page', game_id=game._id) }}"
+                                            class="waves-effect waves-light btn blue-grey darken-4">Rules</a>
+                                        {% if session.user|lower == game.submitted_by|lower or session.user|lower == "admin" %}
+                                        <a href="{{ url_for('edit_game', game_id=game._id) }}"
+                                            class="waves-effect waves-light btn blue-grey darken-4">Edit</a>
+                                        {% endif %}
+                                        {% if session.user|lower == "admin" %}
+                                        <a href="{{ url_for('delete_game', game_id=game._id) }}"
+                                            class="waves-effect waves-light btn red">Delete</a>
+                                        {% endif %}
+                                    </div>
+
+                                </div>
+
+                            </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+
+        <!-- end category -->
+
+
+
 
     </div>
     <div id="scroll-spy" class="col hide-on-small-only m3 l2">
@@ -102,16 +179,10 @@
         <br>
         <h5 class="blue-grey-text text-darken-4">Categories</h5>
         <ul class="section table-of-contents">
-            {% for item in categories %}
-                <li><a href="#all-games">{{ item.category_name }}</a></li>
+            <li><a href="#all-games">All Games</a></li>
+            {% for category in categories %}
+                <li><a href="#{{ category._id }}">{{ category.category_name }}</a></li>
             {% endfor %}
-            <li><a href="#card-games">Card Games</a></li>
-            <li><a href="#classic-games">Classic Games</a></li>
-            <li><a href="#group-games">Group Games</a></li>
-            <li><a href="#misc-games">Miscellaneous</a></li>
-            <li><a href="#team-games">Team Games</a></li>
-            <li><a href="#top-five">Top 5 Games</a></li>
-            <li><a href="#virtual-games">Virtual Games</a></li>
         </ul>
     </div>
 
