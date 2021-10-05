@@ -3,8 +3,12 @@
 
 <h3 class="center-align blue-grey-text text-darken-4">The Drinking Game Dictionary</h3>
 
-<h4 class="center-align blue-grey-text text-darken-4">Got a game? <a href="{{ url_for('register') }}">Sign up</a> to
-    submit!</h4>
+<h4 class="center-align blue-grey-text text-darken-4">Got a game? 
+    {% if user not in session %}
+        <a href="{{ url_for('register') }}">Sign up</a> to submit!</h4>
+    {% else %}
+        <a href="{{ url_for('add_game') }}">Submit</a> a game!</h4>
+    {% endif %}
 <div class="row">
     <hr class="col s8 offset-s2 blue-grey darken-4">
 </div>
