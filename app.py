@@ -114,8 +114,11 @@ def add_game():
             "game_requirements": request.form.getlist("game_requirements"),
             "game_rules": request.form.getlist("game_rules"),
             "category_name": request.form.getlist("category_name"),
-            "submitted_by": session["user"]
+            "submitted_by": session["user"],
+            "game_rating": 0
             }
+        print(game)
+
         mongo.db.games.insert_one(game)
         flash("Game Submitted")
         return redirect(url_for('get_games'))

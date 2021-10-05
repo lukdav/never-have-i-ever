@@ -76,10 +76,10 @@
     padding: 0;
 }
 
-@media only screen and (max-width: 475px){
+@media only screen and (max-width: 475px) {
     #brand-logo {
         font-size: 2rem;
         left: 10px;
         -webkit-transform: none;
         transform: none;
-}
+}}
