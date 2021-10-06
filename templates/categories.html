@@ -7,29 +7,33 @@
     <div class="row">
         {% for category in categories %}
             <a href="{{ url_for('category', category_id=category._id) }}">
-                <div class="col s12 m3">
+                <div class="col s12 m4">
                     <div class="card blue-grey lighten-1">
                         <div class="center-align card-content white-text">
                             <span class="card-title">{{ category.category_name }}</span>
                         </div>
-                        <div class="center-align card-action">
-                            <a href="{{ url_for('edit_category', category_id=category._id) }}"
-                                class="waves-effect waves-light btn blue-grey darken-4">Edit</a>
-                            <a href="{{ url_for('delete_category', category_id=category._id) }}" class="waves-effect waves-light btn red">Delete</a>
-                        </div>
+                        {% if session.user|lower == "admin"|lower %}
+                            <div class="center-align card-action">
+                                <a href="{{ url_for('edit_category', category_id=category._id) }}"
+                                    class="waves-effect waves-light btn blue-grey darken-4">Edit</a>
+                                <a href="{{ url_for('delete_category', category_id=category._id) }}" class="waves-effect waves-light btn red">Delete</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </a>
         {% endfor %}
     </div>
-    <!-- add category -->
-    <div class="row">
-        <div class="col s12 center-align">
-            <a href="{{ url_for('add_category') }}" class="btn-large blue-grey darken-4">
-                Add Category <i class="fas fa-plus right"></i>
-            </a>
+    {% if session.user|lower == "admin"|lower %}
+        <!-- add category -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{{ url_for('add_category') }}" class="btn-large blue-grey darken-4">
+                    Add Category <i class="fas fa-plus right"></i>
+                </a>
+            </div>
         </div>
-    </div>
+    {% endif %}
 </main>
 
 {% endblock %}

@@ -1,7 +1,11 @@
-#scroll-spy{
+#fixed-nav{
     position: sticky;
     top:50px;
-   }
+}
+
+#linked:hover {
+    text-decoration: underline;
+}
 
 #search-box {
     margin-bottom: 0;

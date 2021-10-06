@@ -81,10 +81,9 @@ The Edit Game page:
 - Form input fields are prepopulated with Name, Description, Requirements, Rules, Categories of the game and a Submit Button.
 
 The Categories page:
-- Access only available to users with Admin authority.
 - Contains individual Cards for each type of category.
-- Each card has Edit and a Delete buttons.
-- Below the cards is a button to Add Category.
+- Each card has Edit and a Delete buttons with Admin priviledges.
+- Below the cards is a button to Add Category for an Admin.
 
 The Add Category page:
 - Contains a form to add a new category.
