@@ -96,6 +96,13 @@ The Edit Category page:
 - Form input field for Category Name is prepopulated.
 - Below are a Cancel button to go back and a Submit button to update the category.
 
+The Database (MongoDB):
+- The "never-have-i-ever" database contains three collections: "users", "categories" and "games".
+- The "users" collection contains a unique id number, the username and a hashed password for each user signed up to the website.
+- The "categories" collection contains a unique id number and the category name for each category.
+- The "games" collection contains a unique id number, the game name, description, requirements, rules, category names, submitted by and a game rating for each game.
+- The "games" collection is linked to the "categories" collection through the category names. A game can fall under one or more categories. 
+
 
 ### Yet to be Implemented
 
@@ -122,6 +129,7 @@ Game Rating:
 - CSS3 (Cascading Style Sheets) is a style sheet language used for describing the presentation of a document written in HTML.
 - [JavaScript](https://www.javascript.com/) is a high-level programming language and has been used to add a small amount of interactivity.
 - [Python3](https://www.python.org/download/releases/3.0/) is a coding language used to communicate with the database.
+- [Heroku](https://www.heroku.com/) is a cloud platform as a service.
 - [MongoDB](https://www.mongodb.com/) is a document-oriented database, used to store data; categories, games and user data.
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/) is a micro-web framework - depends on Jinja template engine and Werkzeug.
 
@@ -281,6 +289,34 @@ To clone this project from GitHub:
 7. Press Enter. Your local clone will be created.
 
 Further reading and troubleshooting on cloning a repository can be found [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
+### Deployment to Heroku
+1. Upload files that Heroku requires to run the app by typing:
+
+    ```pip3 freeze --local > requirements.txt``` in the terminal. 
+    
+    Followed by:
+
+    ```echo web: python app.py > Procfile```
+
+    Ensure files are pushed to the repository on GitHub.
+
+2. Sign up or log in to the Heroku Website.
+3. Click "Create New App" in the top right corner.
+4. Create a unique App Name, choose a region (Europe) from the dropdown and click "Create App".
+5. Set up Automatic Deployment by "Connecting to GitHub".
+6. Ensure Profile is displayed and enter the repository name. Search and click connect repository to the app.
+7. Click on the Settings tab, followed by "Reveal Config Vars".
+8. Enter the following variables:
+    - IP(0.0.0.0)
+    - PORT(5000)
+    - SECRET_KEY(from env.py file)
+    - MONGO_URI(from MongoDB)
+    - MONGO_DBNAME(never-have-i-ever)
+9. Click back to the Deploy tab. Then Click "Enable Automatic Deploys", followed by "Deploy Branch" (with main selected).
+10. Ensure the "Your app was successfully deployed" message is displayed.
+
+
 
 
 ---

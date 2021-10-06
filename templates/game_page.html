@@ -6,14 +6,17 @@
     <div class="row">
         <div class="col s12">
             <div id="game-box" class="card-panel">
+                <!-- game name -->
                 <h3 class="center-align blue-grey-text text-darken-4">
                     {{ game.game_name }}
                 </h3>
                 <div>
+                    <!-- description -->
                     <p>
                         {{ game.game_description }}
                     </p>
                     <br>
+                    <!-- requirements -->
                     <h5 class="blue-grey-text text-darken-4">Requirements:</h5>
                     <ul>
                         {% for item in game.game_requirements %}
@@ -21,6 +24,7 @@
                         {% endfor %}
                     </ul>
                     <br>
+                    <!-- rules -->
                     <h5 class="blue-grey-text text-darken-4">Rules:</h5>
                     <ol>
                         {% for rule in game.game_rules %}
@@ -28,13 +32,11 @@
                         {% endfor %}
                     </ol>
                     <br>
+                    <!-- rating -->
                     <p class="center-align blue-grey-text text-darken-4">Rating: {{ game.game_rating }}
                         <span id="upvote-btn"><a href="{{url_for('upvote', game_id=game._id) }}"
                             class="waves-effect waves-light btn-small blue-grey darken-4">Upvote</a></span>
                     </p>
-                    
-                    
-                    
                 </div>
             </div>
         </div>

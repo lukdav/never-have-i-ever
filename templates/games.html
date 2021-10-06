@@ -2,21 +2,14 @@
 {% block content %}
 
 <h3 class="center-align blue-grey-text text-darken-4">The Drinking Game Dictionary</h3>
-
-<h4 class="center-align blue-grey-text text-darken-4">Got a game? 
-    {% if user not in session %}
-        <a href="{{ url_for('register') }}">Sign up</a> to submit!</h4>
-    {% else %}
-        <a href="{{ url_for('add_game') }}">Submit</a> a game!</h4>
-    {% endif %}
+<!-- call to action -->
+<h4 class="center-align blue-grey-text text-darken-4">Got a game?
+        <a href="{{ url_for('add_game') }}">Submit here!</a></h4>
 <div class="row">
     <hr class="col s8 offset-s2 blue-grey darken-4">
 </div>
-
-
 <div class="row">
     <div class="col s12 m9 l10">
-
 
         <!-- all games category -->
         <div id="all-games" class="section scrollspy">
@@ -24,22 +17,23 @@
             <ul class="s12 collapsible">
                 {% for game in games %}
                 <li>
-
+                    <!-- game image -->
                     <div class="row" id="game-image">
                         {% if game.category_name[0] == "Card Games" %}
-                        <img src="{{ url_for('static', filename='images/playing-cards.jpg') }}" alt="Playing cards">
+                            <img src="{{ url_for('static', filename='images/playing-cards.jpg') }}" alt="Playing cards">
                         {% elif game.category_name[0] == "Team Games" %}
-                        <img src="{{ url_for('static', filename='images/beer-pong.jpg') }}" alt="Beer pong">
+                            <img src="{{ url_for('static', filename='images/beer-pong.jpg') }}" alt="Beer pong">
                         {% elif game.category_name[0] == "Board Games" %}
-                        <img src="{{ url_for('static', filename='images/drinking-chess.jpg') }}" alt="Drinking chess">
+                            <img src="{{ url_for('static', filename='images/drinking-chess.jpg') }}" alt="Drinking chess">
                         {% elif game.category_name[0] == "Virtual Games" %}
-                        <img src="{{ url_for('static', filename='images/computer-wine.jpg') }}" alt="Laptop and wine">
+                            <img src="{{ url_for('static', filename='images/computer-wine.jpg') }}" alt="Laptop and wine">
                         {% elif game.category_name[0] == "Classic Games" %}
-                        <img src="{{ url_for('static', filename='images/classic-beer.jpg') }}" alt="Cheers">
+                            <img src="{{ url_for('static', filename='images/classic-beer.jpg') }}" alt="Cheers">
                         {% else %}
-                        <img src="{{ url_for('static', filename='images/dice.jpg') }}" alt="Dice">
+                            <img src="{{ url_for('static', filename='images/dice.jpg') }}" alt="Dice">
                         {% endif %}
                     </div>
+                    <!-- collapsible header -->
                     <div class="s12 collapsible-header blue-grey darken-4 white-text">
                         <div id="game-caret" class="col s1">
                             <i class="fas fa-caret-down"></i>
@@ -53,10 +47,10 @@
                                     {% endfor %}
                                 </p>
                                 <p class="right">Rating: {{ game.game_rating }}</p>
-
                             </span>
                         </div>
                     </div>
+                    <!-- collapsible body -->
                     <div class="collapsible-body">
                         <div>
                             <h6>Description:</h6>
@@ -76,9 +70,7 @@
                                 class="waves-effect waves-light btn red">Delete</a>
                             {% endif %}
                         </div>
-
                     </div>
-
                 </li>
                 {% endfor %}
             </ul>
@@ -86,31 +78,29 @@
 
         <!-- category section -->
         {% for category in categories %}
-            
-
             <div id="{{ category._id }}" class="section scrollspy">
                 <h4 class="center-align blue-grey-text text-darken-4">{{ category.category_name }}</h4>
                 <ul class="s12 collapsible">
                     {% for game in games %}
                         {% if category.category_name in game.category_name %}
-                        
                             <li>
-
+                                <!-- game images -->
                                 <div class="row" id="game-image">
                                     {% if game.category_name[0] == "Card Games" %}
-                                    <img src="{{ url_for('static', filename='images/playing-cards.jpg') }}" alt="Playing cards">
+                                        <img src="{{ url_for('static', filename='images/playing-cards.jpg') }}" alt="Playing cards">
                                     {% elif game.category_name[0] == "Team Games" %}
-                                    <img src="{{ url_for('static', filename='images/beer-pong.jpg') }}" alt="Beer pong">
+                                        <img src="{{ url_for('static', filename='images/beer-pong.jpg') }}" alt="Beer pong">
                                     {% elif game.category_name[0] == "Board Games" %}
-                                    <img src="{{ url_for('static', filename='images/drinking-chess.jpg') }}" alt="Drinking chess">
+                                        <img src="{{ url_for('static', filename='images/drinking-chess.jpg') }}" alt="Drinking chess">
                                     {% elif game.category_name[0] == "Virtual Games" %}
-                                    <img src="{{ url_for('static', filename='images/computer-wine.jpg') }}" alt="Laptop and wine">
+                                        <img src="{{ url_for('static', filename='images/computer-wine.jpg') }}" alt="Laptop and wine">
                                     {% elif game.category_name[0] == "Classic Games" %}
-                                    <img src="{{ url_for('static', filename='images/classic-beer.jpg') }}" alt="Cheers">
+                                        <img src="{{ url_for('static', filename='images/classic-beer.jpg') }}" alt="Cheers">
                                     {% else %}
-                                    <img src="{{ url_for('static', filename='images/dice.jpg') }}" alt="Dice">
+                                        <img src="{{ url_for('static', filename='images/dice.jpg') }}" alt="Dice">
                                     {% endif %}
                                 </div>
+                                <!-- collapsible header -->
                                 <div class="s12 collapsible-header blue-grey darken-4 white-text">
                                     <div id="game-caret" class="col s1">
                                         <i class="fas fa-caret-down"></i>
@@ -128,13 +118,13 @@
                                         </span>
                                     </div>
                                 </div>
+                                <!-- collapsible body -->
                                 <div class="collapsible-body">
                                     <div>
                                         <h6>Description:</h6>
                                         <p>{{game.game_description}}</p>
                                         <p>Submitted by: {{ game.submitted_by }}</p>
                                     </div>
-
                                     <div class="center-align">
                                         <a href="{{ url_for('game_page', game_id=game._id) }}"
                                             class="waves-effect waves-light btn blue-grey darken-4">Rules</a>
@@ -147,25 +137,21 @@
                                             class="waves-effect waves-light btn red">Delete</a>
                                         {% endif %}
                                     </div>
-
                                 </div>
-
                             </li>
                         {% endif %}
                     {% endfor %}
                 </ul>
             </div>
         {% endfor %}
-
         <!-- end category -->
-
-
-
-
     </div>
+
+    <!-- scrollspy -->
     <div id="scroll-spy" class="col hide-on-small-only m3 l2">
         <div class="row blue-grey lighten-5">
             <form action="{{ url_for('search') }}" method="post" class="col s12">
+                <!-- search -->
                 <div id="search-box" class="row center-align">
                     <div class="input-field col s12">
                         <i class="fas fa-search prefix blue-grey-text text-darken-4"></i>
@@ -184,6 +170,7 @@
             </form>
         </div>
         <br>
+        <!-- categories nav -->
         <h5 class="blue-grey-text text-darken-4">Categories</h5>
         <ul class="section table-of-contents">
             <li><a href="#all-games">All Games</a></li>
@@ -196,77 +183,3 @@
 </div>
 
 {% endblock %}
-
-
-
-
-<!-- <h3 class="center-align">The Drinking Game Dictionary</h3>
-
-<div class="row">
-    <div class="col s12 m9">
-        <ul class="s12 collapsible">
-            {% for game in games %}
-            <li>
-                <div class="row" id="game-image">
-                    <img src="{{ url_for('static', filename='images/playing-cards.jpg') }}" alt="Playing cards">
-                </div>
-                <div class="s12 collapsible-header blue-grey darken-4 white-text">
-                    <div id="game-caret" class="col s3">
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="col s9" id="game-card">
-                        <span id="game-name" class="left"><strong>{{game.game_name}}</strong></span>
-                        <span id="game-categories" class="right">
-                            {% for category in game.category_name %}
-                                {{ category }}
-                            {% endfor %}
-                        </span>
-                    </div>
-                </div>
-                <div class="collapsible-body">
-                    <div>
-                        <h6>Description:</h6>
-                        <p>{{game.game_description}}</p>
-                        <p>Submitted by: {{ game.submitted_by }}</p>
-                    </div>
-                    
-                    <div class="center-align">
-                        {% if session.user|lower == game.submitted_by|lower or session.user|lower == "admin" %}
-                            <a href="{{ url_for('edit_game', game_id=game._id) }}" class="waves-effect waves-light btn blue-grey darken-4">Edit</a>
-                        {% endif %}
-                        {% if session.user|lower == "admin" %}
-                            <a href="{{ url_for('delete_game', game_id=game._id) }}" class="waves-effect waves-light btn red">Delete</a>
-                        {% endif %}
-                    </div>
-                    
-                </div>
-                
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="col m3">
-        <div class="row">
-            <div class="col s12 m9 l10">
-              <div id="introduction" class="section scrollspy">
-                <p>Content </p>
-              </div>
-        
-              <div id="structure" class="section scrollspy">
-                <p>Content </p>
-              </div>
-        
-              <div id="initialization" class="section scrollspy">
-                <p>Content </p>
-              </div>
-            </div>
-            <div class="col hide-on-small-only m3 l2">
-              <ul class="section table-of-contents">
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#structure">Structure</a></li>
-                <li><a href="#initialization">Intialization</a></li>
-              </ul>
-            </div>
-          </div>
-    </div>
-</div> -->

@@ -40,8 +40,6 @@ document.getElementById("add_requirements").onclick = function () {
 
   var node = document.createElement("Li");
   var text = document.getElementById("new_requirements").value;
-//   var textnode = document.createTextNode(text);
-//   node.appendChild(textnode);
   document.getElementById("game_requirements").appendChild(node);
   node.innerHTML+=`<input type="text" name="game_requirements" value="${text}">`
   document.getElementById("new_requirements").value="";
@@ -51,17 +49,7 @@ document.getElementById("add_rule").onclick = function () {
 
   var node = document.createElement("Li");
   var text = document.getElementById("new_rule").value;
-//   var textnode = document.createTextNode(text);
-//   node.appendChild(textnode);
   document.getElementById("game_rules").appendChild(node);
   node.innerHTML+=`<input type="text" name="game_rules" value="${text}">`
   document.getElementById("new_rule").value="";
 }
-
-
-// document.getElementById("add_rule").addEventListener("keydown", function (event) {
-//   if (event.key == "Enter") {
-//     submitGame();
-//   }
-
-
