@@ -145,27 +145,21 @@ Game Rating:
 ## Testing
 
 1. W3C testing for the code.
-- Each page of the website was checked independently by copying and then pasting its html code into the validator. The result often returned errors. Some were consistent across all pages and were easily rectified. Others however were more specific and difficult to correct. An example of such an occurrence was how the validator returned the error: "button must not appear as a descendant of the a element". This was rectified by styling the anchor element with the same class as the button to be used, but not using the button element.
-- Screenshots of the validator were taken after testing the code:
+- The HTML was going to be validated by copying and then pasting the source code into the validator. The validator rturned a lot of problems but most were repeated issues. The first 9 results can be see in the image below: 
 
 index.html
-![index.html](assets/validation/index.html.png)
+![Attempted Validation](static/images/html-val.png)
 
-about.html
-![about.html](assets/validation/about.html.png)
-
-media.html
-![media.html](assets/validation/media.html.png)
-
-contact.html
-![contact.html](assets/validation/contact.html.png)
+- The first error states that the section lacks a header. This is referring to the flash messages. 
+- The second error states that a p element can not be the child of a span element. This is being rendered in the with data from the database, however a longer term fix will be sought.
+- The third type of error states that there is a duplicate ID. This is due to many game images being rendered on each game card and a way around this is unknown.
 
 
 2. CSS testing
-- W3C CSS (Jigsaw) Validator was used to test for errors. The test found several small errors and were quickly corrected or deleted if surplus. The successful test result is shown in the following image:
+- W3C CSS (Jigsaw) Validator was going to be used to test for errors. The successful test result is shown in the following image:
 
 style.css
-![style.css](assets/validation/style.css.png)
+![CSS Validation](static/images/html-val.png)
 
 3. Lighthouse (Dev Tools)
 A report was conducted for a mobile device, and returned the following scores:
