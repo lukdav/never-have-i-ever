@@ -39,17 +39,16 @@ Add Game Page
 ### Existing Features
 
 Navigation bar:
-- A regular user will see links to the Home Page, Register or to Log In.
-- A registered user who is logged in will see links to the Home Page, Submit Game, Profile Page and Log Out.
-- An Admin will see the same as a registered user, with the addition of a Manage Categories link. 
+- A regular user will see links to the Home Page, Categories, Register or to Log In.
+- A registered user who is logged in will see links to the Home Page, Categories, Submit Game, Profile Page and Log Out. 
 
 The Home page:
 - A title further explaning the purpose of the website, along with a link to sign up to submit content.
 - The remainder of the home page will be split into two columns.
-- One column, taking up 25% of the page width, will contain a navigation 'scrollspy' listing the categories. The scrollspy will be fixed so as the page scrolls the section being viewed will be highlighted.
-- The main column, taking 75% of the page width will contain a list of games, depending on the selected category.
+- One column, taking up 25% of the page width, will contain a navigation section listing the categories. The category navigation is fixed with a Search input fiel above.
+- The main column, taking 75% of the page width will contain a list of all games.
 - Each game card states the Game Name, and the Categories associated with it. The Game card also shows an image referring to the game category.
-- The Game card also contains a collapsible which expands to reveal the game description, with a button to the Game Page to reveal specific game rules. An Edit and/or Delete button is also present depending on user admin authorisation.
+- The Game card also contains a collapsible which expands to reveal the game description, with a button to the Game Page to reveal specific game rules. An Edit and/or Delete button is also present depending on admin authorisation.
 
 The Register page:
 - Contains a form to create a new account.
@@ -82,15 +81,21 @@ The Edit Game page:
 
 The Categories page:
 - Contains individual Cards for each type of category.
-- Each card has Edit and a Delete buttons with Admin priviledges.
-- Below the cards is a button to Add Category for an Admin.
+- Each card has an Edit and a Delete buttons under Admin priviledges.
+- Below the cards is a button to Add Category for an Admin only.
+
+The Category Page:
+- Similar in layout to the home page.
+- Each category has its own category page that displays all games which fall under that category.
 
 The Add Category page:
+- Admin only.
 - Contains a form to add a new category.
 - A form input field is for Category Name.
 - Below are a Cancel button to go back and a Submit button to add the category.
 
 The Edit Category page:
+- Admin only.
 - Contains a form to edit an existing category.
 - Form input field for Category Name is prepopulated.
 - Below are a Cancel button to go back and a Submit button to update the category.
