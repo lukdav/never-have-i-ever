@@ -106,6 +106,9 @@ The Database (MongoDB):
 
 ### Yet to be Implemented
 
+Categories Pages
+- Instead of all games being displayed on the home page, it would be much better to have individual category pages. This was not realised until the category sections were wired up and the extremely large and unwieldly list is hard to comprehend.
+
 Profile Page:
 - Users Details.
 
@@ -162,12 +165,12 @@ style.css
 
 3. Lighthouse (Dev Tools)
 A report was conducted for a mobile device, and returned the following scores:
-- Performance - 77%
-- Accessibility - 93%
-- Best Practices - 80%
-- SEO - 89%
+- Performance - 80%
+- Accessibility - 96%
+- Best Practices - 93%
+- SEO - 92%
 
-There are many things that could be optimised, such as adding a "rel=noopener" to each link for security reasons. All advisories will be considered and acted upon if necessary.
+There are many things that could be optimised, such as properly sizing images. All advisories will be considered and acted upon if necessary.
 
 4. User Stories
 - The first user story is addressed as the website provides a list of games and categorises them to make page navigation easier and so a better level of UX is achieved.
@@ -315,9 +318,6 @@ Further reading and troubleshooting on cloning a repository can be found [here](
     - MONGO_DBNAME(never-have-i-ever)
 9. Click back to the Deploy tab. Then Click "Enable Automatic Deploys", followed by "Deploy Branch" (with main selected).
 10. Ensure the "Your app was successfully deployed" message is displayed.
-
-
-
 
 ---
 

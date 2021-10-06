@@ -179,6 +179,14 @@ def get_categories():
     return render_template("categories.html", categories=categories)
 
 
+@app.route("/category/<category_id>")
+def category(category_id):
+    categories = list(mongo.db.categories.find())
+    games = list(mongo.db.games.find())
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return render_template("category.html", categories=categories, games=games, category=category)
+
+
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":

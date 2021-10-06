@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- category section -->
+
+<div id="{{ category._id }}" class="section scrollspy">
+    <h4 class="center-align blue-grey-text text-darken-4">{{ category.category_name }}</h4>
+    <ul class="s12 collapsible">
+        {% for game in games %}
+            {% if category.category_name in game.category_name %}
+                    <li>
+                        <!-- game images -->
+                        <div class="row" id="game-image">
+                            {% if game.category_name[0] == "Card Games" %}
+                                <img src="{{ url_for('static', filename='images/playing-cards.jpg') }}" alt="Playing cards">
+                            {% elif game.category_name[0] == "Team Games" %}
+                                <img src="{{ url_for('static', filename='images/beer-pong.jpg') }}" alt="Beer pong">
+                            {% elif game.category_name[0] == "Board Games" %}
+                                <img src="{{ url_for('static', filename='images/drinking-chess.jpg') }}" alt="Drinking chess">
+                            {% elif game.category_name[0] == "Virtual Games" %}
+                                <img src="{{ url_for('static', filename='images/computer-wine.jpg') }}" alt="Laptop and wine">
+                            {% elif game.category_name[0] == "Classic Games" %}
+                                <img src="{{ url_for('static', filename='images/classic-beer.jpg') }}" alt="Cheers">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='images/dice.jpg') }}" alt="Dice">
+                            {% endif %}
+                        </div>
+                        <!-- collapsible header -->
+                        <div class="s12 collapsible-header blue-grey darken-4 white-text">
+                            <div id="game-caret" class="col s1">
+                                <i class="fas fa-caret-down"></i>
+                            </div>
+                            <div class="col s11" id="game-card">
+                                <span id="game-name" class="left"><strong>{{game.game_name}}</strong></span>
+                                <span id="game-categories" class="right">
+                                    <p>
+                                        {% for category in game.category_name %}
+                                            {{ category }}
+                                        {% endfor %}
+                                    </p>
+                                    <p class="right">Rating: {{ game.game_rating }}</p>
+
+                                </span>
+                            </div>
+                        </div>
+                        <!-- collapsible body -->
+                        <div class="collapsible-body">
+                            <div>
+                                <h6>Description:</h6>
+                                <p>{{game.game_description}}</p>
+                                <p>Submitted by: {{ game.submitted_by }}</p>
+                            </div>
+                            <div class="center-align">
+                                <a href="{{ url_for('game_page', game_id=game._id) }}"
+                                    class="waves-effect waves-light btn blue-grey darken-4">Rules</a>
+                                {% if session.user|lower == game.submitted_by|lower or session.user|lower == "admin" %}
+                                <a href="{{ url_for('edit_game', game_id=game._id) }}"
+                                    class="waves-effect waves-light btn blue-grey darken-4">Edit</a>
+                                {% endif %}
+                                {% if session.user|lower == "admin" %}
+                                <a href="{{ url_for('delete_game', game_id=game._id) }}"
+                                    class="waves-effect waves-light btn red">Delete</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- end category -->
+
+{% endblock %}
